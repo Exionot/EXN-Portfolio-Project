@@ -116,3 +116,63 @@ document.addEventListener("DOMContentLoaded", function () {
         animateElement(button);
     })
 });
+
+
+// Projects Gallery 
+document.addEventListener('DOMContentLoaded', function() {
+    const imageContainer = document.querySelector('.projects-gallery-image-container');
+    const images = document.querySelectorAll('.projects-gallery-image');
+    const imageItems = document.querySelectorAll('.projects-gallery-image-item');
+    const prevBtn = document.getElementById('previous');
+    const nextBtn = document.getElementById('next');
+    let currentIndex = 0;
+
+    function updateGallery(newIndex) {
+        images[currentIndex].classList.remove('focus');
+        
+        currentIndex = newIndex;
+        
+        images[currentIndex].classList.add('focus');
+        
+        const imageWidth = 35; 
+        const marginAdjustment = currentIndex * 3; 
+        
+        const offset = -(currentIndex * imageWidth);
+        imageContainer.style.transform = `translateX(calc(${offset}vw + ${marginAdjustment}rem))`;
+
+        if (currentIndex === 0) {
+            prevBtn.classList.add('disabled');
+            prevBtn.disabled = true;
+        } else {
+            prevBtn.classList.remove('disabled');
+            prevBtn.disabled = false;
+        }
+        
+        if (currentIndex === images.length - 1) {
+            nextBtn.classList.add('disabled');
+            nextBtn.disabled = true;
+        } else {
+            nextBtn.classList.remove('disabled');
+            nextBtn.disabled = false;
+        }
+    }
+
+    imageItems.forEach((item, index) => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            updateGallery(index);
+        });
+    });
+
+    prevBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+            updateGallery(currentIndex - 1);
+        }
+    });
+
+    nextBtn.addEventListener('click', function() {
+        if (currentIndex < images.length - 1) {
+            updateGallery(currentIndex + 1);
+        }
+    });
+});

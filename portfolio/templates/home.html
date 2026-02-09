@@ -32,6 +32,39 @@
         </a>
     </div>
 </section>
-<section id="projects"></section>
+<section id="projects">
+    <div class="projects-title-container">
+        <h2>MY WORKS</h4>
+    </div>
+    <div class="projects-banner-gallery-wrapper">
+        <div class="projects-gallery-container">
+            <p class="projects-gallery-title">Title goes here...</p>
+            <hr>
+            <div class="projects-gallery-image-container">
+                <a href="" class="projects-gallery-image-item">
+                    <img src="{{ url_for('static', filename='/images/Staying Minty Final.png') }}" class="projects-gallery-image focus">
+                </a>
+                <a href="" class="projects-gallery-image-item">
+                    <img src="{{ url_for('static', filename='/images/Canine Adventures Final.png') }}" class="projects-gallery-image">
+                </a>
+                <a href="" class="projects-gallery-image-item">
+                    <img src="{{ url_for('static', filename='/images/Golden Aura Final.png') }}" class="projects-gallery-image">
+                </a>
+                <a href="" class="projects-gallery-image-item">
+                    <img src="{{ url_for('static', filename='/images/Vixens Secret Final.png') }}" class="projects-gallery-image">
+                </a>
+            </div>
+        
+            <div class="projects-gallery-button-container">
+                <button class="projects-gallery-button disabled" id="previous">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <button class="projects-gallery-button" id="next">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
 <section id="about"></section>
 {% endblock %}

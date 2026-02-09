@@ -161,7 +161,8 @@ nav:hover i{
 
 section{
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: max-content;
     width: 100%;
     padding-left: 3.5rem;
 
@@ -185,7 +186,7 @@ section{
     /* text-shadow: 0 0 25px var(--background-secondary); */
     color: var(--text-primary-white);
 
-    animation: flicker-2x 0.4s ease forwards;
+    animation: flicker-2x 0.2s ease forwards;
 }
 
 .hero-subtitle{
@@ -240,7 +241,17 @@ section{
 }
 
 .hero-button:hover button{
-    background: var(--purple);
+    background: linear-gradient(
+        90deg,
+        var(--purple) 0%,
+        var(--purple) 40%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: line-gradient-left-purple 0.2s linear forwards;
+    /* background: var(--purple); */
 }
 
 .hero-button:hover .hero-button-line{
@@ -249,13 +260,92 @@ section{
 }
 
 
-/* #projects{
-    background-color: #155724;
+/* Projects Section */
+#projects{
+    padding-top: 15vh;
+    padding-left: 20vw;
+
 }
 
+.projects-title-container{
+    position: relative;
+    margin-bottom: 8vh;
+}
+
+.projects-gallery-container{
+    overflow-x: hidden;
+}
+
+.projects-gallery-container hr{
+    margin: 1vh 0 3vh;
+    border: solid var(--background-secondary) 0.1rem;
+}
+
+.projects-gallery-image-container{
+    display: flex;
+    margin-bottom: 3vh;
+    transition: transform 0.5s ease;
+}
+
+.projects-gallery-image{
+    width: 35vw;
+    height: 40vh;
+    margin-right: -3rem;
+
+    text-decoration: none;
+
+    border-radius: 0.5rem;
+    background: var(--background-secondary);
+    object-fit: contain;
+    /* object-position: top; */
+
+    filter: brightness(50%);
+    transform: scale(85%);
+
+    transition: all 0.3s ease-in-out;
+}
+
+.projects-gallery-image.focus{
+    margin-right: 0rem;
+    filter: none;
+    transform: scale(100%);
+}
+
+.projects-gallery-button-container{
+    bottom: 0;
+    display: inline-flex;
+    gap: 2vw;
+    border: solid var(--background-secondary) 4px;
+    border-radius: 20%/50%;
+    background: var(--background-secondary);
+}
+
+.projects-gallery-button{
+    border: solid var(--background) 4px;
+    border-radius: 100%;
+    height: 5.5vh;
+    width: 3vw;
+    margin: 0 0rem;
+    color: var(--text-primary-black);
+    background: var(--background);
+
+    transition: all 0.3s ease;
+}
+
+.projects-gallery-button.disabled{
+    color: var(--nav-icon-off);
+}
+
+.projects-gallery-button:not(.projects-gallery-button.disabled):hover{
+    color: var(--text-primary-white);
+    background: var(--purple);
+}
+
+
+/* About Section*/
 #about{
-    background-color: #f5c6cb;
-} */
+    background: #f8d7da;
+}
 
 
 /* Footer */
@@ -265,7 +355,8 @@ footer {
     align-items: center;
     padding-bottom: 2rem;
     width: 100%;
-    height: 70vh;
+    min-height: 70vh;
+    max-height: fit-content;
     position: relative;
     bottom: 0;
     z-index: 5;
@@ -468,5 +559,14 @@ footer h1{
     }
     90%{
         opacity: 1;
+    }
+}
+
+@keyframes line-gradient-left-purple {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: 0% 0;
     }
 }
