@@ -1,0 +1,472 @@
+:root{
+    --black: #101010;
+    --gray: #575757;
+    --purple: rgb(140, 94, 180);
+    
+    --background: #e3e3e3;
+    --background-secondary: #c4c3c3;
+
+    --text-primary-black: #121212;
+    --text-primary-white: #e3e3e3;
+    
+    --nav-highlight: var(--purple);
+    --nav-icon-off: rgba(0, 0, 0, 0.2);
+    --nav-icon-on: var(--gray);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Zalando Sans';
+    user-select: none;
+}
+
+html, body{
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+    /* overflow-y: auto; */
+    scrollbar-width: none;      
+}
+
+.page-wrapper{
+    position: relative;
+}
+
+nav{
+    display: flex;
+    flex-flow: column;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+    height: 100vh;
+    width: 3.5rem;
+    background: var(--background);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3) ;
+
+    transition: width 0.3s ease;
+}
+
+.nav-logo{
+    height: 3rem;
+    margin-bottom: 3rem;
+    margin: 0.5rem 0.5rem 3rem 0.5rem;
+    
+    cursor: default;
+}
+
+.nav-logo span{
+    font-family: "Goldman";
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link{
+    margin: 0.1rem 0;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    margin-left: 0.2rem;
+    transition: all 0.2s ease;
+}
+
+.nav-item i{
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0.5rem 0 0.5rem 0;
+    margin-left: 0.3rem;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--nav-icon-off);
+    transition: all 0.2s ease;
+}
+
+.nav-text{
+    position: absolute;
+    opacity: 0;
+    transition: transform 0.4s ease, color 0.3s ease;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--background);
+    animation: text-fade-out 0.1s forwards;
+}
+
+nav:hover{
+    width: 10rem;
+}
+
+nav:hover .nav-logo span{
+    font-size: 2rem;
+}
+
+nav:hover .nav-text{
+    animation: text-fade-in 0.5s ease-in forwards;
+    transform: translateX(3.5rem);
+    color: var(--text-primary-black);
+}
+
+.nav-item:hover{
+    background: var(--background-secondary);
+}
+
+a:not(.toggled) .nav-item:hover i{
+    color: var(--nav-icon-on);
+}
+
+nav:hover i{
+    font-size: 1.5rem;
+}
+
+.logout-btn{
+    margin-top: auto;
+    margin-bottom: 1rem;
+}
+
+/* Toggled nav */
+.toggle-highlight{
+    position: absolute;
+    left: 0;
+    height: 2.5rem;
+    width: 0.4rem;
+}
+
+.toggled {
+    background: var(--background-secondary);
+    box-sizing: border-box;
+}
+
+.toggled .toggle-highlight{
+    background: var(--black);
+}
+
+.toggled i{
+    color: var(--text-primary-black);
+}
+
+/* Page sections */
+.container{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+section{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding-left: 3.5rem;
+
+    background-color: var(--background);
+}
+
+/* Home section */
+#home{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    background: linear-gradient(var(--black) 0%,  var(--purple)350%);
+}
+
+.hero-title{
+    margin-top: 30vh;
+    margin-bottom: 1vh;
+
+    font-size: 4vw;
+    text-align: center;
+    /* text-shadow: 0 0 25px var(--background-secondary); */
+    color: var(--text-primary-white);
+
+    animation: flicker-2x 0.4s ease forwards;
+}
+
+.hero-subtitle{
+    margin-bottom: 5vh;
+    font-style: italic;
+    font-weight: normal;
+    color: var(--background-secondary);
+}
+
+.hero-title b{
+    color: var(--purple);
+}
+
+/* Hero Buttons */
+.hero-button{
+    text-decoration: none;   
+    opacity: 0;
+    animation: fade-in 1s ease-in forwards;
+}
+
+.hero-button button{
+    position: relative;
+    padding: 0.8rem 2.5rem;
+    margin: 0 1rem;
+    border: none;
+    border-radius: 0.3rem;
+
+    background: var(--black);
+
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-primary-white);
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.hero-button button i{
+    margin-right: 0.5rem;
+}
+
+.hero-button-line{
+    position: absolute;
+    left: 0;
+    right: 0;
+    justify-self: center;
+    bottom: -0.5rem;
+    width: 0%;
+    height: 0.2rem;
+
+    transition: width 0.5s ease;
+}
+
+.hero-button:hover button{
+    background: var(--purple);
+}
+
+.hero-button:hover .hero-button-line{
+    background: var(--purple);
+    width: 100%;
+}
+
+
+/* #projects{
+    background-color: #155724;
+}
+
+#about{
+    background-color: #f5c6cb;
+} */
+
+
+/* Footer */
+footer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    bottom: 0;
+    z-index: 5;
+    background: var(--black);
+}
+
+/* Go to top button */
+.jump-container{
+    margin: 2rem 0;
+}
+
+.footer-home-button{
+    position: relative;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-primary-white);
+}
+
+.footer-home-button i{
+    margin: 0 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-home-button:hover i{
+    transform: translateY(-0.5rem);
+}
+
+.footer-home-button-underline{
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
+    right: 0;
+    height: 0.2rem;
+    width: 0%;
+    justify-self: center;
+    /* background: red; */
+    transition: width 0.3s ease;
+}
+
+.footer-home-button:hover .footer-home-button-underline{
+    width: 90%;
+    background: var(--text-primary-white);
+}
+
+footer hr{
+    width: 100%;
+    border: solid var(--gray) 1px;
+    border-bottom: none;
+}
+
+.footer-logo{
+    margin-top: 3rem;
+    font-size: 2rem;
+}
+
+.footer-logo h1{
+    font-family: 'Goldman';
+}
+
+footer h1{
+    color: var(--text-primary-white);
+}
+
+/* Footer Contact */
+.contact-container{
+    margin-top: 2rem;
+}
+
+.contact-container > *{
+    margin: 0 1rem;
+    font-weight: lighter;
+    text-decoration: none;
+    color: var(--text-primary-white);
+}
+
+.contact-title{
+    margin-bottom: 1rem;
+    font-weight: normal;
+    text-align: center;
+    color: var(--text-primary-white);
+}
+
+.contact-container i{
+    margin-right: 0.3rem;
+    font-size: 1.5rem;
+}
+
+.footer-bottom-text{
+    margin-top: auto;
+}
+
+.trademark-text{
+    font-size: small;
+    color: var(--gray);
+    text-align: center;
+}
+
+.copyright-text{
+    font-size: x-small;
+    color: var(--gray);
+    text-align: center;
+}
+
+
+/* Flash */
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: inherit;
+}
+
+
+/* Animation key frames */
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes text-fade-in{
+    75%{
+        opacity: 0.5;
+    }
+    87%{
+        opacity: 0.75;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes text-fade-out{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes flicker-2x {
+    20%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 1;
+    }
+}
+
+@keyframes flicker-4x {
+    20%{
+        opacity: 0;
+    }
+    30%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 1;
+    }
+}

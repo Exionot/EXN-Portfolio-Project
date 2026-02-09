@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<section id="home">
+    <h1 class="hero-title">
+        Just make it <b>exist</b> first,<br>
+        you can make it <b>beautiful</b> later.
+    </h1>
+    <h5 class="hero-subtitle">
+        — A quote from Adam Grant.
+    </h5>
+    <div class="hero-button-container">
+        <a href="#projects" class="hero-button" tabindex="-1">
+            <button id="hero-project-button">
+                <i class="fa fa-folder-open" aria-hidden="true"></i>
+                <span class="hero-button-text">
+                    My Projects
+                </span>
+                <span class="hero-button-line"></span>
+            </button>
+        </a>
+
+        <a href="#footer" class="hero-button" tabindex="-1">
+            <button id="hero-contact-button">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span class="hero-button-text">
+                    Contact Me
+                </span>
+                <span class="hero-button-line"></span>
+            </button>
+        </a>
+    </div>
+</section>
+<section id="projects"></section>
+<section id="about"></section>
+{% endblock %}
