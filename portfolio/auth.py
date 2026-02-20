@@ -19,7 +19,7 @@ def login():
             flash('You do not exist', category='error')
 
     name = current_user.username if current_user.is_authenticated else "User"
-    return render_template("login.html", name=name)
+    return render_template("admin-login.html", name=name)
 
 @auth.route('/logout')
 @login_required

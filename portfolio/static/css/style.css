@@ -344,7 +344,7 @@ section{
 
 /* About Section*/
 #about{
-    background: #f8d7da;
+    /* background: #f8d7da; */
 }
 
 
@@ -446,6 +446,9 @@ footer h1{
 
 .footer-bottom-text{
     margin-top: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 .trademark-text{
@@ -457,7 +460,9 @@ footer h1{
 .copyright-text{
     font-size: x-small;
     color: var(--gray);
+    align-self: center;
     text-align: center;
+    text-decoration: none;
 }
 
 

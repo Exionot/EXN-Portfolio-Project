@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='/images/Staying Minty Final.png')}}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
@@ -39,28 +41,28 @@
         <nav>
             <div class="nav-logo"><span>EXN</span></div>
         
-            <a href="#home" class="nav-link" tabindex="-1" >
+            <a href="/#home" class="nav-link" tabindex="-1" >
                 <span class="nav-item ">
                     <span class="toggle-highlight"></span>
                     <i class="fa fa-home" aria-hidden="true"></i>
                     <span class="nav-text">Home</span>
                 </span>
             </a>
-            <a href="#projects" class="nav-link" tabindex="-1" >
+            <a href="/#projects" class="nav-link" tabindex="-1" >
                 <span class="nav-item">
                     <span class="toggle-highlight"></span>
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                     <span class="nav-text">Projects</span>
                 </span>
             </a>
-            <a href="#about" class="nav-link" tabindex="-1">
+            <a href="/#about" class="nav-link" tabindex="-1">
                 <span class="nav-item">
                     <span class="toggle-highlight"></span>
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span class="nav-text">About</span>
                 </span>
             </a>
-            <a href="#footer" class="nav-link" tabindex="-1">
+            <a href="/#footer" class="nav-link" tabindex="-1">
                 <span class="nav-item">
                     <span class="toggle-highlight"></span>
                     <i class="fa fa-phone" aria-hidden="true"></i>
@@ -117,9 +119,9 @@
                 Nothing on this page is intended to claim ownership, registration, or legal protection of any names, logos, or branding shown. Developed by Zack U. Alingalan from BAIT - 1A.
             </p>
             <br>
-            <p class="copyright-text">
+            <a href="/login" class="copyright-text">
                 © 2007-2026 Exionot Studio. All Rights Reserved.
-            </p>
+            </a>
         </div>
     </footer>
     <script src="{{ url_for('static', filename='javascript/main.js')}}"></script>

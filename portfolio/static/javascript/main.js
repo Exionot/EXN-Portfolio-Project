@@ -18,7 +18,7 @@ const observer = new IntersectionObserver((entries) => {
         navLinks.forEach(link => {
             link.classList.toggle(
                 "toggled",
-                link.getAttribute("href") === `#${id}`
+                link.getAttribute("href") === `/#${id}`
             );
         });
 
