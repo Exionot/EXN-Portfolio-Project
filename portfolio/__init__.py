@@ -19,9 +19,10 @@ def create_app():
 
     from .models import User
 
-    with app.app_context():
-        print('DB Created')
-        # db.create_all() 
+    db.create_all
+    # with app.app_context():
+    #     print('DB Created')
+         
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'

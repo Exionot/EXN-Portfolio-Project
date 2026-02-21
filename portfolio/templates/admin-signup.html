@@ -1,17 +1,20 @@
 {% extends "base.html" %}
-{% block title %} Admin | Login {% endblock %}
+{% block title %} Admin | Add User {% endblock %}
 
 {% block content %}
 <section>
     <form method="POST">
-        <h3>Login</h3>
+        <h3>Add User</h3>
         <label for="username">Username</label>
         <input type="text" id="username" name="username" placeholder="Enter username"/>
         <br/>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Enter password"/>
         <br>
-        <button type="submit" >Login</button>
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter password"/>
+        <br>
+        <button type="submit" >Add User</button>
     </form>
 </section>
 {% endblock %}

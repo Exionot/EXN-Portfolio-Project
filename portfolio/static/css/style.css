@@ -467,6 +467,12 @@ footer h1{
 
 
 /* Flash */
+.flash{
+    padding: 0.5rem 0;
+    padding-left: 4rem;
+    height: max-content;
+}
+
 .flash.success {
     background-color: #d4edda;
     color: #155724;
@@ -481,8 +487,8 @@ footer h1{
 
 .close-btn {
     position: absolute;
-    top: 5px;
     right: 10px;
+    align-self: center;
     background: transparent;
     border: none;
     font-size: 18px;

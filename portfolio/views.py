@@ -6,4 +6,5 @@ views = Blueprint('views', __name__)
 @views.route('/')
 # @login_required
 def home():
-    return render_template("home.html")
+    print(current_user.is_authenticated)
+    return render_template("home.html", isUserAuthenticated = current_user.is_authenticated)
